@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amit Kumar Patel | Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+        body{
+            line-height:1.6;
+        }
+        header{
+            background:#111;
+            padding:15px 40px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .logo{
+            color:#00c6ff;
+            font-size:24px;
+        }
+        .nav-links{
+            list-style:none;
+            display:flex;
+        }
+        .nav-links li{
+            margin-left:20px;
+        }
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+        .nav-links a:hover{
+            color:#00c6ff;
+        }
+
+        /* Hero */
+        .hero{
+            height:90vh;
+            background:linear-gradient(to right,#0072ff,#00c6ff);
+            color:white;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+        .hero span{
+            color:yellow;
+        }
+        .hero button{
+            margin-top:20px;
+            padding:12px 30px;
+            background:#111;
+            color:white;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+            font-size:16px;
+        }
+
+        /* Sections */
+        .section{
+            padding:60px 10%;
+            text-align:center;
+        }
+        .bg{
+            background:#f4f4f4;
+        }
+
+        /* Skills */
+        .skills span{
+            display:inline-block;
+            margin:10px;
+            padding:10px 20px;
+            background:#0072ff;
+            color:white;
+            border-radius:20px;
+        }
+
+        /* Projects */
+        .projects{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+            margin-top:20px;
+        }
+        .card{
+            padding:20px;
+            border:1px solid #ddd;
+            border-radius:10px;
+        }
+
+        /* Contact */
+        form{
+            max-width:400px;
+            margin:auto;
+        }
+        form input, form textarea{
+            width:100%;
+            margin:10px 0;
+            padding:10px;
+        }
+        form button{
+            width:100%;
+            padding:10px;
+            background:#0072ff;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        footer{
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        @media(max-width:600px){
+            header{
+                padding:15px 20px;
+            }
+            .nav-links{
+                flex-direction:column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Amit Patel</h2>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>Hello, I'm <span>Amit Kumar Patel</span></h1>
+    <h2>Web Developer</h2>
+    <p>I build modern & responsive websites</p>
+    <button onclick="scrollToContact()">Hire Me</button>
+</section>
+
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        I am a passionate Web Developer skilled in HTML, CSS, JavaScript
+        and basic backend technologies. I enjoy creating clean, user-friendly
+        and responsive websites.
+    </p>
+</section>
+
+<section id="skills" class="section bg">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Bootstrap</span>
+        <span>React (Basic)</span>
+        <span>PHP</span>
+        <span>MySQL</span>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio built using HTML, CSS & JS.</p>
+        </div>
+        <div class="card">
+            <h3>Children Foundation Website</h3>
+            <p>NGO website with donation and contact features.</p>
+        </div>
+        <div class="card">
+            <h3>Login System</h3>
+            <p>Login & registration system with validation.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section bg">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p id="msg"></p>
+</section>
+
+<footer>
+    <p>© 2026 Amit Kumar Patel | Web Developer</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    function scrollToContact(){
+        document.getElementById("contact")
+        .scrollIntoView({behavior:"smooth"});
+    }
+
+    document.getElementById("contactForm")
+    .addEventListener("submit", function(e){
+        e.preventDefault();
+        document.getElementById("msg").innerText =
+        "Thank you! Your message has been sent successfully.";
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
